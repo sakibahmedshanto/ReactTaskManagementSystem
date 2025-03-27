@@ -1,9 +1,15 @@
+const ApiError = require("../utils/ApiError");
+
 const ErrorHandling = (err,req,res,next) =>{
     const obj={
-        'StatusCode':500,
+        StatusCode:500
     }
-    obj['message']=err.message;
-    if(err instanceof Error){
+    if(err instanceof ApiError){
+        obj['StatusCode']=err.statusCode;
+        obj['message']=err.message;
+        obj['Stack']=err.stack;
+    }
+    else{
         obj['message']=err.message;
         obj['Stack']=err.stack;
     }
