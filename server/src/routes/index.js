@@ -5,7 +5,7 @@ const router = express.Router();
 const routes = [
     {
         path: '/auth',
-        route: require("./Auth.route").router
+        route: require("./Auth.route")
     }
 ]
 

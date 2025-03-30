@@ -3,7 +3,6 @@ const { body } = require("express-validator");
 class AuthValidation {
   static registerUser = () => {
     body("name").notEmpty().withMessage("PLease Provide a valid name");
-
     body("email")
       .notEmpty()
       .withMessage("Please Provide a valid email")
