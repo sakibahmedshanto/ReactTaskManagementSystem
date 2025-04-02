@@ -1,14 +1,12 @@
-const e = require('express');
-const mongoose = require('mongoose');
-require('dotenv').config({});
+const mongoose = require("mongoose")
 
-exports.ConnectDb = async () => {
+exports.ConnectDB = async()=>{
     try {
-        await mongoose.connect(process.env.MONGO_URI);
-        console.log(`the db is connected with ${mongoose.connection.host}`);
+                await mongoose.connect(process.env.MONGO_URI)
+                console.log(`> the db is connect with ${mongoose.connection.host}`.bgRed);
+                
     } catch (error) {
-        console.error(`Error: ${error.message}`);
-        mongoose.disconnect();
-        process.exit(1);
+        mongoose.disconnect()
+        process.exit(1)
     }
 }

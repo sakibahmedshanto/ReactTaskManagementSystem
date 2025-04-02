@@ -1,18 +1,20 @@
-const express = require('express');
-const { path, route } = require('../app');
-const router = express.Router();
+const express = require("express")
+const router = express.Router()
 
 const routes = [
     {
-        path: '/auth',
-        route: require("./Auth.route")
+        path:'/auth',
+        route:require("./Auth.route")
+    },
+    {
+        path:'/task',
+        route:require("./Task.route")
     }
 ]
 
-routes.forEach(r => {        
-    router.use(r.path, r.route);
-}   
-);
 
+routes.forEach((C)=>{
+    router.use(C.path,C.route)
+})
 
-module.exports = router;
+module.exports = router

@@ -1,12 +1,12 @@
-require('dotenv').config({});
-require('colors')
-const { ConnectDb } = require('./src/config/db.config');
-const app = require('./src/app');
-const port = process.env.PORT || 3000;
-ConnectDb();
+require("dotenv").config({})
+require("colors")
+const app = require("./src/app");
+const { ConnectDB } = require("./src/config/db.config");
+const port = process.env.PORT || 8000
+ConnectDB()
 
 
-app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
-    }
-);
+app.listen(port,()=>{
+    console.log(`> the app is listen at http://localhost:${port}`.bgGreen);
+    
+})
