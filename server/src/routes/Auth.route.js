@@ -1,10 +1,18 @@
-const express = require('express');
-const Authcontroller = require('../controllers/Authcontroller');
-const { registerValidation } = require('../validation/Auth.validation'); // Corrected path and import
-const validationError = require('../middlewares/validationError');
-const router = express.Router();
-const a =Authcontroller.registerUser;
-router.route("/")
-    .post(registerValidation,validationError,a );
+const express = require("express")
+const AuthController = require("../controllers/Auth.controller")
+const AuthValidation = require("../validations/Auth.validation")
+const ValidationError = require("../middlwares/ValidationError")
+const AuthValidator = require("../middlwares/AuthValidator")
+const router = express.Router()
 
-module.exports = router;
+router.route("/register")
+.post(AuthValidation.registerUser,ValidationError, AuthController.registerUser)
+
+router.route("/login")
+.post(AuthValidation.loginUser,ValidationError, AuthController.loginUser)
+
+
+router.route("/profile")
+.get(AuthValidator, AuthController.profileUser)
+
+module.exports = router
