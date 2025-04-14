@@ -1,19 +1,19 @@
-const ApiError = require("../utils/ApiError");
+const { ApiError } = require("../utils/ApiError");
 
-const ErrorHandling = (err,req,res,next) =>{
-    const obj={
-        StatusCode:500
-    }
-    if(err instanceof ApiError){
-        obj['StatusCode']=err.statusCode;
-        obj['message']=err.message;
-        obj['Stack']=err.stack;
-    }
-    else{
-        obj['message']=err.message;
-        obj['Stack']=err.stack;
-    }
-    res.status(obj.StatusCode).send(obj);
+const ErrorHandle = (err,req,res,next)=>{
+            const obj = {
+                'statusCode':500
+            }
+               if(err instanceof ApiError){
+                obj['statusCode'] = err.statusCode
+                 obj['message'] = err.message;
+                obj['stack'] = err.stack;
+               }else{
+                   obj['message'] = err.message;
+                obj['stack'] = err.stack;
+               }
+               res.status(obj.statusCode).send(obj)
+
 }
 
-module.exports =ErrorHandling
+module.exports = ErrorHandle
