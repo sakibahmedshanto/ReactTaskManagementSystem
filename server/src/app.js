@@ -16,7 +16,7 @@ app.use("/api/v1",require("./routes"))
 app.use("*",(req,res)=>{
     throw new ApiError(404,"page not found")
 })
-
+ 
 app.use(ErrorHandle)
 
 module.exports = app
