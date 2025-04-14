@@ -1,7 +1,7 @@
 const express = require("express")
 const router =express.Router()
-const ValidationError = require("../middlwares/ValidationError")
-const AuthValidator = require("../middlwares/AuthValidator")
+const ValidationError = require("../middlewares/ValidationError")
+const AuthValidator = require("../middlewares/AuthValidator")
 const TaskValidation = require("../validations/Task.validation")
 const TaskController = require("../controllers/Task.controller")
 
