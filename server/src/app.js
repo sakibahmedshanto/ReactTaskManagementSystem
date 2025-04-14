@@ -19,4 +19,4 @@ app.use("*",(req,res)=>{
  
 app.use(ErrorHandle)
 
-module.exports = app
+module.exports = app 
